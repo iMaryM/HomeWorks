@@ -14,23 +14,31 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //task_1
-        let tuple1: (name: String, age: Int, salary: Float) = ("Mary", 16, 10.00)
-        let tuple2: (name: String, age: Int, salary: Float) = ("Mary", 25, 100.00)
-        let tuple3: (name: String, age: Int, salary: Float) = ("Mary", 37, 1000.00)
-        let tuple4: (name: String, age: Int, salary: Float) = ("Mary", 42, 1000.00)
+        var tuple1: (name: String, age: Int, salary: Float) = ("Mary", 16, 10.00)
+        var tuple2: (name: String, age: Int, salary: Float) = ("Mary", 25, 100.00)
+        var tuple3: (name: String, age: Int, salary: Float) = ("Mary", 37, 1000.00)
+        var tuple4: (name: String, age: Int, salary: Float) = ("Mary", 42, 1000.00)
         
         print("===TASK_1===")
-        calculateSalary(tuple: tuple1)
-        calculateSalary(tuple: tuple2)
-        calculateSalary(tuple: tuple3)
-        calculateSalary(tuple: tuple4)
+        print()
+        calculateSalary(tuple: &tuple1)
+        print("New tuple1: \(tuple1)")
+        print()
+        calculateSalary(tuple: &tuple2)
+        print("New tuple2: \(tuple2)")
+        print()
+        calculateSalary(tuple: &tuple3)
+        print("New tuple3: \(tuple3)")
+        print()
+        calculateSalary(tuple: &tuple4)
+        print("New tuple4: \(tuple4)")
         print()
         
     }
     
     //task_1
     
-    func calculateSalary(tuple: (name: String, age: Int, salary: Float)) {
+    func calculateSalary(tuple: inout (name: String, age: Int, salary: Float)) {
         
         var newSalary: Float = 0.0;
         
@@ -46,6 +54,8 @@ class ViewController: UIViewController {
         }
         
         print("For \(tuple.name), age \(tuple.age), salary \(tuple.salary): new salary is \(newSalary)")
+        
+        tuple.salary = newSalary
         
     }
 
