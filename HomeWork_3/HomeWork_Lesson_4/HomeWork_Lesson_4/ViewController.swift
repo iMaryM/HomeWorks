@@ -40,22 +40,18 @@ class ViewController: UIViewController {
     
     func calculateSalary(tuple: inout (name: String, age: Int, salary: Float)) {
         
-        var newSalary: Float = 0.0;
-        
         switch tuple.age {
         case 0...17:
-            newSalary += tuple.salary
+            tuple.salary = tuple.salary
         case 18...30:
-            newSalary += (tuple.salary * 1.50)
+            tuple.salary = tuple.salary * 1.50
         case 31...40:
-            newSalary += (tuple.salary * 2.0)
+            tuple.salary = tuple.salary * 2.0
         default:
-            newSalary += (tuple.salary * 3.0)
+            tuple.salary = tuple.salary * 3.0
         }
         
-        print("For \(tuple.name), age \(tuple.age), salary \(tuple.salary): new salary is \(newSalary)")
-        
-        tuple.salary = newSalary
+        print("For \(tuple.name), age \(tuple.age), salary \(tuple.salary): new salary is \(tuple.salary)")
         
     }
 
