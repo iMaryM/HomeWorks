@@ -157,6 +157,9 @@ class ViewController: UIViewController {
         
         //task_5
         
+        print("===Задание_5===")
+        print()
+        
         let arr: [Int] = [1, 2, 3, 4, 5, 6, 7]
         
         func reverseArray (from arr: [Int]) -> [Int] {
@@ -176,8 +179,6 @@ class ViewController: UIViewController {
             return reverseArray(from: arrTemp)
         }
         
-        print("===Задание_5===")
-        print()
         print("Массив: \(arr)")
         print("Массив в обратном порядке: \(reverseArray(from: arr))")
         print("Последовательность: 1, 2, 3, 4, 5, 6, 7, 8")
@@ -250,6 +251,9 @@ class ViewController: UIViewController {
         
         //task_7
         
+        print("===Задание_7===")
+        print()
+        
         let arr1 = [23, 55, 8, 73, 90, -5, 8, 123]
         
         func fintMaxValueInArray (in arr: [Int]) -> Int {
@@ -263,13 +267,13 @@ class ViewController: UIViewController {
             return max
         }
         
-        print("===Задание_7===")
-        print()
         print("Максимальное значение в массиве \(arr1): \(fintMaxValueInArray(in: arr1))")
         print()
         
-        
         //task_8
+        
+        print("===Задание_8===")
+        print()
         
         let arr2 = [45, 88, 98, 5, 19, 23, 55, 77, 2]
         
@@ -286,14 +290,11 @@ class ViewController: UIViewController {
             return arrTemp
         }
         
-        print("===Задание_8===")
-        print()
         print("Массив: \(arr2)")
         print("Результат работы фукнции по определению четных и нечетных чисел в массиве: \(searchOddAndEvenNumber(in: arr2))")
         print()
         
     }
-
 
 }
 
