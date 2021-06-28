@@ -189,10 +189,51 @@ class ViewController: UIViewController {
         
         print("===Задание_6===")
         print()
+
+        let newString = "About 90 percent of all children attend public school, which is free. The other 10 percent go I private schools, which often include religious education."
         
-        let newString = "About 90 percent of all children attend public school, which is free. The other 10 percent go I private schools, which often include religious education. "
+        func convertStringWithTempString (at str: String) -> String {
+            var strTemp: String = ""
+            
+            for index in 0..<str.count {
+                switch str[str.index(str.startIndex, offsetBy: index)] {
+                case "A", "E", "I", "O", "U", "Y", "a", "e", "i", "o", "u", "y":
+                    strTemp.append(str[str.index(str.startIndex, offsetBy: index)].uppercased())
+                case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z":
+                    strTemp.append(str[str.index(str.startIndex, offsetBy: index)].lowercased())
+                case " ":
+                    strTemp.append(str[str.index(str.startIndex, offsetBy: index)])
+                case ".", ",", "?", "!", ":", ";":
+                    break
+                case "0":
+                    strTemp.append("zero ")
+                case "1":
+                    strTemp.append("one ")
+                case "2":
+                    strTemp.append("two ")
+                case "3":
+                    strTemp.append("three ")
+                case "4":
+                    strTemp.append("four ")
+                case "5":
+                    strTemp.append("five ")
+                case "6":
+                    strTemp.append("six ")
+                case "7":
+                    strTemp.append("seven ")
+                case "8":
+                    strTemp.append("eight ")
+                case "9":
+                    strTemp.append("nine ")
+                default:
+                    break
+                }
+            }
+            
+            return strTemp
+        }
         
-        func convertString (at str: String) -> String {
+        func convertStringWithoutTempString  (at str: String) -> String {
             var strTemp = str
             
             for index in 0..<strTemp.count {
@@ -204,49 +245,38 @@ class ViewController: UIViewController {
                     print(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)])
                     strTemp.insert(contentsOf: String(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)]).lowercased(), at: strTemp.index(strTemp.startIndex, offsetBy: index))
                     strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
-                case "0":
-                    strTemp.insert(contentsOf: "zero ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "zero ".count)))
-                case "1":
-                    strTemp.insert(contentsOf: "one ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "one ".count)))
-                case "2":
-                    strTemp.insert(contentsOf: "two ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "two ".count)))
-                case "3":
-                    strTemp.insert(contentsOf: "three ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "three ".count)))
-                case "4":
-                    strTemp.insert(contentsOf: "four ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "four ".count)))
-                case "5":
-                    strTemp.insert(contentsOf: "five ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "five ".count)))
-                case "6":
-                    strTemp.insert(contentsOf: "six ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "six ".count)))
-                case "7":
-                    strTemp.insert(contentsOf: "seven ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "seven ".count)))
-                case "8":
-                    strTemp.insert(contentsOf: "eight ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "eight ".count)))
-                case "9":
-                    strTemp.insert(contentsOf: "nine ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "nine ".count)))
-                case ".", ",", "?", "!", ":", ";":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                case " ":
+                    strTemp.append(str[str.index(str.startIndex, offsetBy: index)])
+
                 default:
-                    print(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)])
                     break
                 }
             }
             
+            strTemp = strTemp.replacingOccurrences(of: ".", with: "")
+            strTemp = strTemp.replacingOccurrences(of: ",", with: "")
+            strTemp = strTemp.replacingOccurrences(of: "?", with: "")
+            strTemp = strTemp.replacingOccurrences(of: "!", with: "")
+            strTemp = strTemp.replacingOccurrences(of: ":", with: "")
+            strTemp = strTemp.replacingOccurrences(of: ";", with: "")
+            
+            strTemp = strTemp.replacingOccurrences(of: "0", with: "zero ")
+            strTemp = strTemp.replacingOccurrences(of: "1", with: "one ")
+            strTemp = strTemp.replacingOccurrences(of: "2", with: "two ")
+            strTemp = strTemp.replacingOccurrences(of: "3", with: "three ")
+            strTemp = strTemp.replacingOccurrences(of: "4", with: "four ")
+            strTemp = strTemp.replacingOccurrences(of: "5", with: "five ")
+            strTemp = strTemp.replacingOccurrences(of: "6", with: "six ")
+            strTemp = strTemp.replacingOccurrences(of: "7", with: "seven ")
+            strTemp = strTemp.replacingOccurrences(of: "8", with: "eight ")
+            strTemp = strTemp.replacingOccurrences(of: "9", with: "nine ")
+            
             return strTemp
         }
         
-        print(convertString(at: newString))
+        print("Вариант 1 (с записью в новую строку): \(convertStringWithTempString(at: newString))")
+        
+        print("Вариант 2 (с редактированием строки): \(convertStringWithoutTempString(at: newString))")
         print()
         
         //task_7
