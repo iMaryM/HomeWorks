@@ -197,41 +197,43 @@ class ViewController: UIViewController {
             for index in 0..<strTemp.count {
                 switch strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)] {
                 case "a", "e", "i", "o", "u", "y":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
                     strTemp.insert(contentsOf: String(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)]).uppercased(), at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
+                case "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z":
+                    print(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)])
                     strTemp.insert(contentsOf: String(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)]).lowercased(), at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
                 case "0":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "zero", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "zero ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "zero ".count)))
                 case "1":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "one", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "one ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "one ".count)))
                 case "2":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "two", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "two ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "two ".count)))
                 case "3":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "three", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "three ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "three ".count)))
                 case "4":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "four", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "four ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "four ".count)))
                 case "5":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "five", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "five ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "five ".count)))
                 case "6":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "six", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "six ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "six ".count)))
                 case "7":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "seven", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "seven ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "seven ".count)))
                 case "8":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "eight", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "eight ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "eight ".count)))
                 case "9":
-                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
-                    strTemp.insert(contentsOf: "nine", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.insert(contentsOf: "nine ", at: strTemp.index(strTemp.startIndex, offsetBy: index))
+                    strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + "nine ".count)))
                 case ".", ",", "?", "!", ":", ";":
                     strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: index))
                 default:
