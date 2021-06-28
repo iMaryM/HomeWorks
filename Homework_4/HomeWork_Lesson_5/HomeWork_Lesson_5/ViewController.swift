@@ -242,7 +242,6 @@ class ViewController: UIViewController {
                     strTemp.insert(contentsOf: String(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)]).uppercased(), at: strTemp.index(strTemp.startIndex, offsetBy: index))
                     strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
                 case "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z":
-                    print(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)])
                     strTemp.insert(contentsOf: String(strTemp[strTemp.index(strTemp.startIndex, offsetBy: index)]).lowercased(), at: strTemp.index(strTemp.startIndex, offsetBy: index))
                     strTemp.remove(at: strTemp.index(strTemp.startIndex, offsetBy: (index + 1)))
                 case " ":
@@ -275,7 +274,7 @@ class ViewController: UIViewController {
         }
         
         print("Вариант 1 (с записью в новую строку): \(convertStringWithTempString(at: newString))")
-        
+        print()
         print("Вариант 2 (с редактированием строки): \(convertStringWithoutTempString(at: newString))")
         print()
         
