@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let group1: Group = Group(nameOfGroup: "Group_1", journalOfStudents: [student1, student2, student3, student4, student5])
         
         group1.printAllStudentsInGroup()
-        group1.removeStudentsWithAverageScoreLess(then: 8.0)
+        group1.removeStudentsWithAverageScoreLessPlus(then: 8.0)
         group1.printAllStudentsInGroup()
         
     }

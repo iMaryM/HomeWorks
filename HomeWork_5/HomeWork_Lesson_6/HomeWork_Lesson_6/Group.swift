@@ -34,4 +34,11 @@ class Group {
             index -= 1
         }
     }
+    
+    func removeStudentsWithAverageScoreLessPlus (then averageScore: Double) {
+        
+        journalOfStudents = journalOfStudents.filter{$0.averageScore < averageScore}
+        
+    }
+    
 }
