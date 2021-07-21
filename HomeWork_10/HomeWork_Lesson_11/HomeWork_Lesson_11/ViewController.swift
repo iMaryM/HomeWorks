@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var roundedButton: [UIButton]!
+    @IBOutlet weak var buttonZero: UIButton!
     
     override func viewDidLoad() {
         
@@ -19,14 +20,17 @@ class ViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ : Bool) {
+    override func viewDidLayoutSubviews() {
         
-        super.viewWillAppear(true)
+        super.viewDidLayoutSubviews()
         
         for value in roundedButton {
             value.layer.cornerRadius = value.bounds.size.width / 2.0
             value.clipsToBounds = true
         }
+        
+        buttonZero.layer.cornerRadius = buttonZero.bounds.size.width / 5.0
+        
     }
 
 }

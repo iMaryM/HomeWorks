@@ -267,6 +267,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonZero" destination="SIZ-p0-EiM" id="0FK-nd-vGB"/>
                         <outletCollection property="roundedButton" destination="8bF-Eq-Kis" collectionClass="NSMutableArray" id="9oq-y9-fhb"/>
                         <outletCollection property="roundedButton" destination="OsV-0e-cR5" collectionClass="NSMutableArray" id="vzP-Lb-4eR"/>
                         <outletCollection property="roundedButton" destination="TwK-Ly-xDN" collectionClass="NSMutableArray" id="6aL-q8-bhM"/>
