@@ -155,9 +155,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FV-gi-F7N">
-                                <rect key="frame" x="64" y="310" width="286" height="286"/>
+                                <rect key="frame" x="87" y="333" width="240" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="7FV-gi-F7N" secondAttribute="height" multiplier="1:1" id="3up-6P-V49"/>
+                                    <constraint firstAttribute="width" constant="240" id="4fg-Bt-6rR"/>
+                                    <constraint firstAttribute="height" constant="240" id="B6q-9W-6BA"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5a1c4de4ea9df1.784204881511804388961" translatesAutoresizingMaskIntoConstraints="NO" id="pZM-9N-KjW">
@@ -194,7 +195,6 @@
                             <constraint firstItem="pZM-9N-KjW" firstAttribute="leading" secondItem="syf-Uv-xVn" secondAttribute="leading" id="Fco-rx-qaK"/>
                             <constraint firstItem="4oT-7z-7qk" firstAttribute="top" secondItem="syf-Uv-xVn" secondAttribute="top" constant="16" id="GY8-p8-Pod"/>
                             <constraint firstItem="7FV-gi-F7N" firstAttribute="centerX" secondItem="syf-Uv-xVn" secondAttribute="centerX" id="LEj-Jx-p2n"/>
-                            <constraint firstItem="syf-Uv-xVn" firstAttribute="trailing" secondItem="7FV-gi-F7N" secondAttribute="trailing" constant="64" id="Ope-z8-8gR"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="height" secondItem="pZM-9N-KjW" secondAttribute="height" multiplier="0.5" id="QvD-WZ-qnE"/>
                             <constraint firstItem="syf-Uv-xVn" firstAttribute="trailing" secondItem="4oT-7z-7qk" secondAttribute="trailing" id="TFk-fE-HnT"/>
                             <constraint firstItem="pZM-9N-KjW" firstAttribute="width" secondItem="0T6-sY-iXn" secondAttribute="width" multiplier="0.2" id="Y37-6t-S6b"/>
@@ -202,7 +202,6 @@
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="centerY" secondItem="pZM-9N-KjW" secondAttribute="centerY" id="cIM-xy-x9m"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="top" secondItem="2sG-2B-QWu" secondAttribute="bottom" constant="8" id="foR-V8-B6L"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="centerX" secondItem="0T6-sY-iXn" secondAttribute="centerX" id="iFZ-aZ-MAt"/>
-                            <constraint firstItem="7FV-gi-F7N" firstAttribute="leading" secondItem="syf-Uv-xVn" secondAttribute="leading" constant="64" id="uJx-9H-nQv"/>
                         </constraints>
                     </view>
                     <connections>

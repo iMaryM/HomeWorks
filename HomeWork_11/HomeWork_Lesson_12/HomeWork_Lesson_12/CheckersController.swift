@@ -12,6 +12,10 @@ class CheckersController: UIViewController {
     @IBOutlet weak var checkersBoard: UIView!
     @IBOutlet weak var labelTimer: UILabel!
     
+    
+    var currentCheckerView = UIView()
+    var checker = UIImageView()
+    
     var arrayOfCheckerViews = [UIView]()
     var arrayOfCheckers = [UIImageView]()
     
@@ -20,30 +24,25 @@ class CheckersController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var currentCheckerView = UIView()
-        var checker = UIImageView()
-        
+
         timer = Timer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         
         RunLoop.main.add(timer, forMode: .common)
         
         var x: CGFloat = 0
         var y: CGFloat = 0
-        let checkerBoargWidth = checkersBoard.frame.width
-        let checkerBoardHeight = checkersBoard.frame.height
         
         for i in 1...8 {
             x = 0
             for j in 1...8 {
-                currentCheckerView = UIView(frame: CGRect(x: x, y: y, width: checkerBoargWidth / 8, height: checkerBoardHeight / 8))
+                currentCheckerView = UIView(frame: CGRect(x: x, y: y, width: 30, height: 30))
                 currentCheckerView.backgroundColor = ((i + j) % 2 == 0) ? .black : .white
                 
                 checkersBoard.addSubview(currentCheckerView)
                 arrayOfCheckerViews.append(currentCheckerView)
                 
                 if i < 4 || i > 5, currentCheckerView.backgroundColor == .black {
-                    checker = UIImageView(frame: CGRect(x: 5, y: 5, width: checkerBoargWidth / 8 - 10, height: checkerBoardHeight / 8 - 10))
+                    checker = UIImageView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
                     checker.image = UIImage(named: i < 4 ? "checker_Tom" : "checker_Jerry")
                     checker.isUserInteractionEnabled = true
                     currentCheckerView.addSubview(checker)
@@ -52,10 +51,11 @@ class CheckersController: UIViewController {
                     let panGeasture = UIPanGestureRecognizer(target: self, action: #selector(panGeastureAction(_:)))
                     checker.addGestureRecognizer(panGeasture)
                 }
-                x += checkerBoargWidth / 8
+                x += 30
             }
-            y += checkerBoardHeight / 8
+            y += 30
         }
+
     }
     
     @objc
