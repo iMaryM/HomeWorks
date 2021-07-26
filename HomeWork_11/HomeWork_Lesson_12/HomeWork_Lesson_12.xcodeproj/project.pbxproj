@@ -14,6 +14,7 @@
 		843DCDDF26A9E57D00236779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843DCDDE26A9E57D00236779 /* Assets.xcassets */; };
 		843DCDE226A9E57D00236779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843DCDE026A9E57D00236779 /* LaunchScreen.storyboard */; };
 		843DCDEA26AAC42F00236779 /* CheckersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DCDE926AAC42F00236779 /* CheckersController.swift */; };
+		8481DC0A26AEB74900840FB3 /* UtilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481DC0926AEB74900840FB3 /* UtilsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		843DCDE126A9E57D00236779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843DCDE326A9E57D00236779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843DCDE926AAC42F00236779 /* CheckersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckersController.swift; sourceTree = "<group>"; };
+		8481DC0926AEB74900840FB3 /* UtilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				843DCDE026A9E57D00236779 /* LaunchScreen.storyboard */,
 				843DCDE326A9E57D00236779 /* Info.plist */,
 				843DCDE926AAC42F00236779 /* CheckersController.swift */,
+				8481DC0926AEB74900840FB3 /* UtilsViewController.swift */,
 			);
 			path = HomeWork_Lesson_12;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8481DC0A26AEB74900840FB3 /* UtilsViewController.swift in Sources */,
 				843DCDDA26A9E57B00236779 /* RootController.swift in Sources */,
 				843DCDD626A9E57B00236779 /* AppDelegate.swift in Sources */,
 				843DCDD826A9E57B00236779 /* SceneDelegate.swift in Sources */,

@@ -10,10 +10,11 @@ import UIKit
 class CheckersController: UIViewController {
 
     @IBOutlet weak var checkersBoard: UIView!
+    @IBOutlet weak var labelTimer: UILabel!
+    
     var arrayOfCheckerViews = [UIView]()
     var arrayOfCheckers = [UIImageView]()
     
-    @IBOutlet weak var labelTimer: UILabel!
     var timer: Timer = Timer()
     var count: Int = 0
     
@@ -21,58 +22,40 @@ class CheckersController: UIViewController {
         super.viewDidLoad()
         
         var currentCheckerView = UIView()
-        var checkerTom = UIImageView()
-        var checkerJerry = UIImageView()
+        var checker = UIImageView()
         
         timer = Timer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         
         RunLoop.main.add(timer, forMode: .common)
         
-        var x = 0
-        var y = 0
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        let checkerBoargWidth = checkersBoard.frame.width
+        let checkerBoardHeight = checkersBoard.frame.height
         
         for i in 1...8 {
             x = 0
             for j in 1...8 {
-                currentCheckerView = UIView(frame: CGRect(x: x, y: y, width: 30, height: 30))
-                
-                if (i + j) % 2 == 0 {
-                    currentCheckerView.backgroundColor = .black
-                } else {
-                    currentCheckerView.backgroundColor = .white
-                }
+                currentCheckerView = UIView(frame: CGRect(x: x, y: y, width: checkerBoargWidth / 8, height: checkerBoardHeight / 8))
+                currentCheckerView.backgroundColor = ((i + j) % 2 == 0) ? .black : .white
                 
                 checkersBoard.addSubview(currentCheckerView)
                 arrayOfCheckerViews.append(currentCheckerView)
                 
-                if currentCheckerView.backgroundColor == .black {
+                if i < 4 || i > 5, currentCheckerView.backgroundColor == .black {
+                    checker = UIImageView(frame: CGRect(x: 5, y: 5, width: checkerBoargWidth / 8 - 10, height: checkerBoardHeight / 8 - 10))
+                    checker.image = UIImage(named: i < 4 ? "checker_Tom" : "checker_Jerry")
+                    checker.isUserInteractionEnabled = true
+                    currentCheckerView.addSubview(checker)
+                    arrayOfCheckers.append(checker)
                     
-                        if (i >= 1 && i < 4) {
-                            checkerTom = UIImageView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
-                            checkerTom.image = UIImage(named: "checker_Tom")
-                            checkerTom.isUserInteractionEnabled = true
-                            currentCheckerView.addSubview(checkerTom)
-                            arrayOfCheckers.append(checkerTom)
-                        } else {
-                            if (i > 5 && i <= 8) {
-                                checkerJerry = UIImageView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
-                                checkerJerry.image = UIImage(named: "checker_Jerry")
-                                checkerJerry.isUserInteractionEnabled = true
-                                currentCheckerView.addSubview(checkerJerry)
-                                arrayOfCheckers.append(checkerJerry)
-                            }
-                        }
-                    }
-                x += 30
+                    let panGeasture = UIPanGestureRecognizer(target: self, action: #selector(panGeastureAction(_:)))
+                    checker.addGestureRecognizer(panGeasture)
+                }
+                x += checkerBoargWidth / 8
             }
-            y += 30
+            y += checkerBoardHeight / 8
         }
-        
-        for value in arrayOfCheckers {
-            let panGeasture = UIPanGestureRecognizer(target: self, action: #selector(panGeastureAction(_:)))
-            value.addGestureRecognizer(panGeasture)
-        }
-
     }
     
     @objc
@@ -115,6 +98,10 @@ class CheckersController: UIViewController {
         }
     }
 
+    @IBAction func goToRootController(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        timer.invalidate()
+    }
     
     @objc
     func timerCounter () {

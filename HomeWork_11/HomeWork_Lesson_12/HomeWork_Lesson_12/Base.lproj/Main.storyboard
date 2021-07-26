@@ -32,10 +32,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOM_AN_JERRY" translatesAutoresizingMaskIntoConstraints="NO" id="IBP-60-tuO">
-                                <rect key="frame" x="51" y="88" width="312" height="224"/>
+                                <rect key="frame" x="51" y="104" width="312" height="224"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cD-VO-Y0i">
-                                <rect key="frame" x="32" y="344" width="350" height="134.5"/>
+                                <rect key="frame" x="32" y="360" width="350" height="134.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngegg (1)" translatesAutoresizingMaskIntoConstraints="NO" id="nC6-hr-EsE">
                                         <rect key="frame" x="0.0" y="19" width="192.5" height="96.5"/>
@@ -51,7 +51,7 @@
                                             <color key="titleColor" red="0.96268218760000002" green="0.83545798059999998" blue="0.32926917080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Nd1-qP-vgb" kind="show" id="v8K-cB-L0t"/>
+                                            <action selector="goToCheckersView:" destination="5ns-ES-bqh" eventType="touchUpInside" id="WTu-Ja-wn4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -66,7 +66,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfY-gw-6x3">
-                                <rect key="frame" x="32" y="510.5" width="350" height="134.5"/>
+                                <rect key="frame" x="32" y="526.5" width="350" height="134.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="t18-9E-oqF">
                                         <rect key="frame" x="215.5" y="0.0" width="134.5" height="134.5"/>
@@ -80,9 +80,6 @@
                                         <state key="normal" title="Результаты">
                                             <color key="titleColor" red="0.96268218760000002" green="0.83545798059999998" blue="0.32926917080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="iKT-mJ-rTZ" kind="show" id="k59-99-hPx"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -96,7 +93,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDO-Pb-Bbb">
-                                <rect key="frame" x="32" y="677" width="350" height="134"/>
+                                <rect key="frame" x="32" y="693" width="350" height="134"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngegg" translatesAutoresizingMaskIntoConstraints="NO" id="MTO-3o-1IC">
                                         <rect key="frame" x="0.0" y="0.0" width="134.5" height="134"/>
@@ -110,9 +107,6 @@
                                         <state key="normal" title="Настройки">
                                             <color key="titleColor" red="0.96268218760000002" green="0.83545798059999998" blue="0.32926917080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="PAI-mO-eQb" kind="show" id="cWU-qM-HKZ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -129,7 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="yDm-Mw-nGf"/>
                         <color key="backgroundColor" red="0.4851085544" green="0.11487252269999999" blue="0.05485934764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="IBP-60-tuO" firstAttribute="top" secondItem="yDm-Mw-nGf" secondAttribute="top" id="0yj-fk-Bhu"/>
+                            <constraint firstItem="IBP-60-tuO" firstAttribute="top" secondItem="yDm-Mw-nGf" secondAttribute="top" constant="16" id="0yj-fk-Bhu"/>
                             <constraint firstItem="cfY-gw-6x3" firstAttribute="height" secondItem="Za1-aJ-9Mw" secondAttribute="height" multiplier="0.15" id="1iq-UH-6nD"/>
                             <constraint firstItem="XDO-Pb-Bbb" firstAttribute="height" secondItem="Za1-aJ-9Mw" secondAttribute="height" multiplier="0.15" id="8Vh-as-PoF"/>
                             <constraint firstItem="XDO-Pb-Bbb" firstAttribute="leading" secondItem="yDm-Mw-nGf" secondAttribute="leading" constant="32" id="Al3-Yh-sgw"/>
@@ -161,10 +155,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FV-gi-F7N">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                                <rect key="frame" x="64" y="310" width="286" height="286"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="41O-LK-VmY"/>
-                                    <constraint firstAttribute="width" constant="240" id="7M0-YS-iF4"/>
+                                    <constraint firstAttribute="width" secondItem="7FV-gi-F7N" secondAttribute="height" multiplier="1:1" id="3up-6P-V49"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5a1c4de4ea9df1.784204881511804388961" translatesAutoresizingMaskIntoConstraints="NO" id="pZM-9N-KjW">
@@ -182,23 +175,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oT-7z-7qk">
+                                <rect key="frame" x="8" y="57" width="142" height="75"/>
+                                <state key="normal" title="Главное меню" image="chevron.backward" catalog="system">
+                                    <color key="titleColor" red="0.96268218760000002" green="0.83545798059999998" blue="0.32926917080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToRootController:" destination="Nd1-qP-vgb" eventType="touchUpInside" id="veo-su-img"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="syf-Uv-xVn"/>
                         <color key="backgroundColor" red="0.3576965332" green="0.057692841350000003" blue="0.042932849519999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="syf-Uv-xVn" firstAttribute="bottom" secondItem="pZM-9N-KjW" secondAttribute="bottom" constant="16" id="1Rl-BG-7fh"/>
                             <constraint firstItem="2sG-2B-QWu" firstAttribute="centerX" secondItem="GXY-W1-Gb4" secondAttribute="centerX" id="6hA-r5-ywD"/>
+                            <constraint firstItem="7FV-gi-F7N" firstAttribute="centerY" secondItem="syf-Uv-xVn" secondAttribute="centerY" id="8Gx-gZ-buZ"/>
                             <constraint firstItem="pZM-9N-KjW" firstAttribute="leading" secondItem="syf-Uv-xVn" secondAttribute="leading" id="Fco-rx-qaK"/>
+                            <constraint firstItem="4oT-7z-7qk" firstAttribute="top" secondItem="syf-Uv-xVn" secondAttribute="top" constant="16" id="GY8-p8-Pod"/>
+                            <constraint firstItem="7FV-gi-F7N" firstAttribute="centerX" secondItem="syf-Uv-xVn" secondAttribute="centerX" id="LEj-Jx-p2n"/>
+                            <constraint firstItem="syf-Uv-xVn" firstAttribute="trailing" secondItem="7FV-gi-F7N" secondAttribute="trailing" constant="64" id="Ope-z8-8gR"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="height" secondItem="pZM-9N-KjW" secondAttribute="height" multiplier="0.5" id="QvD-WZ-qnE"/>
+                            <constraint firstItem="syf-Uv-xVn" firstAttribute="trailing" secondItem="4oT-7z-7qk" secondAttribute="trailing" id="TFk-fE-HnT"/>
                             <constraint firstItem="pZM-9N-KjW" firstAttribute="width" secondItem="0T6-sY-iXn" secondAttribute="width" multiplier="0.2" id="Y37-6t-S6b"/>
-                            <constraint firstItem="7FV-gi-F7N" firstAttribute="centerY" secondItem="0T6-sY-iXn" secondAttribute="centerY" id="Z2l-jK-dTI"/>
+                            <constraint firstItem="4oT-7z-7qk" firstAttribute="leading" secondItem="syf-Uv-xVn" secondAttribute="leading" constant="16" id="a2K-xl-LUG"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="centerY" secondItem="pZM-9N-KjW" secondAttribute="centerY" id="cIM-xy-x9m"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="top" secondItem="2sG-2B-QWu" secondAttribute="bottom" constant="8" id="foR-V8-B6L"/>
                             <constraint firstItem="GXY-W1-Gb4" firstAttribute="centerX" secondItem="0T6-sY-iXn" secondAttribute="centerX" id="iFZ-aZ-MAt"/>
-                            <constraint firstItem="7FV-gi-F7N" firstAttribute="centerX" secondItem="0T6-sY-iXn" secondAttribute="centerX" id="oQd-Yf-73m"/>
+                            <constraint firstItem="7FV-gi-F7N" firstAttribute="leading" secondItem="syf-Uv-xVn" secondAttribute="leading" constant="64" id="uJx-9H-nQv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WeT-s4-Iko"/>
                     <connections>
                         <outlet property="checkersBoard" destination="7FV-gi-F7N" id="c7S-4B-Z3S"/>
                         <outlet property="labelTimer" destination="2sG-2B-QWu" id="hji-vC-CJD"/>
@@ -206,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmd-ws-mlO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-381"/>
+            <point key="canvasLocation" x="2315.9420289855075" y="-381.02678571428572"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZUL-lD-Hkm">
@@ -244,6 +250,7 @@
     <resources>
         <image name="5a1c4de4ea9df1.784204881511804388961" width="2399" height="3225"/>
         <image name="TOM_AN_JERRY" width="312" height="312"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="kisspng-hourglass-drawing-quiz-clip-art-hourglass-cliparts-5a7c138485b212.5003051915180809005476" width="478" height="800"/>
         <image name="pngegg" width="448" height="765"/>
         <image name="pngegg (1)" width="2386" height="1577"/>

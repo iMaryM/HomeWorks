@@ -11,9 +11,14 @@ class RootController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        navigationController?.isNavigationBarHidden = true
+        
     }
 
-
+    @IBAction func goToCheckersView(_ sender: Any) {
+        self.navigationController?.pushViewController(UtilsViewController.getViewController(from: "CheckersController"), animated: true)
+    }
+    
 }
 
