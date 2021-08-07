@@ -7,9 +7,9 @@
 
 import UIKit
 
-enum checker_color {
-    case white_checker
-    case black_checker
+enum checker_color: Int {
+    case white_checker = 0
+    case black_checker = 1
 }
 
 class CheckersViewController: UIViewController {
@@ -43,14 +43,13 @@ class CheckersViewController: UIViewController {
     
     @objc
     func tapGestureAction(_ sender: UILongPressGestureRecognizer) {
+        guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
         switch sender.state {
         case .began:
-            guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
             UIView.animate(withDuration: 0.3) {
                 currentChecker.transform = currentChecker.transform.scaledBy(x: 1.2, y: 1.2)
             }
         case .ended:
-            guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
             UIView.animate(withDuration: 0.3) {
                 currentChecker.transform = .identity
             }
@@ -61,6 +60,12 @@ class CheckersViewController: UIViewController {
     
     @objc
     func panGestureAction(_ sender: UIPanGestureRecognizer) {
+        
+        //проверяем цвет шашки
+        guard let currentChecker = sender.view,
+              currentChecker.tag == currentCheckerToMove.rawValue else {
+            return
+        }
         
         let location = sender.location(in: checkerBoard)
         
@@ -77,64 +82,32 @@ class CheckersViewController: UIViewController {
             checkerBoard.bringSubviewToFront(currentView) //передвигаем клеточку на передний план
             currentChecker.frame.origin = CGPoint(x: defaultOrigin.x + translation.x, y: defaultOrigin.y + translation.y) //передвигаем шашку относительно точки с которой сдвигаем
             sender.setTranslation(.zero, in: checkerBoard) //сбрасываем translation, чтобы всегда сдвиг был с нуля
-            
+        
         case .ended:
             var newCheckerView: UIView? = nil //клеточка в которую хотим поставить шашку
             
-            guard let currentChecker = sender.view else {
-                return
-            }
-            
-            //проверяем цвет шашки
-            if currentChecker.tag == 0 && currentCheckerToMove == .white_checker  {
-                //проверяем является ли клетка в которую хотим поставить шашку черной
-                for value in arrayOfCheckerViews {
-                    if value.frame.contains(location), value.tag == 0 {
-                        newCheckerView = value
-                    }
-                }
-
-                sender.view?.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
-                
-                //проверяем является есть ли в клеточке в которую хотим поставить шашку другая шашка
-                guard let newCheckerView = newCheckerView, newCheckerView.subviews.isEmpty,
-                      let checker = sender.view else { return }
-                
-                newCheckerView.addSubview(checker) // добавляем шашку на новую клетку
-                
-                guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
-                UIView.animate(withDuration: 0.3) {
-                    currentChecker.transform = .identity
-                }
-            
-                currentCheckerToMove = .black_checker
-            } else {
-                if currentChecker.tag == 1 && currentCheckerToMove == .black_checker {
-                    //проверяем является ли клетка в которую хотим поставить шашку черной
-                    for value in arrayOfCheckerViews {
-                        if value.frame.contains(location), value.tag == 0 {
-                            newCheckerView = value
-                        }
-                    }
-
-                    sender.view?.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
-                    
-                    //проверяем является есть ли в клеточке в которую хотим поставить шашку другая шашка
-                    guard let newCheckerView = newCheckerView, newCheckerView.subviews.isEmpty,
-                          let checker = sender.view else { return }
-                    
-                    newCheckerView.addSubview(checker) // добавляем шашку на новую клетку
-                    
-                    guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
-                    UIView.animate(withDuration: 0.3) {
-                        currentChecker.transform = .identity
-                    }
-                
-                    currentCheckerToMove = .white_checker
-                } else {
-                    sender.view?.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
+            //проверяем является ли клетка в которую хотим поставить шашку черной
+            for value in arrayOfCheckerViews {
+                if value.frame.contains(location), value.tag == 0 {
+                    newCheckerView = value
                 }
             }
+            
+            sender.view?.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
+            
+            //проверяем является есть ли в клеточке в которую хотим поставить шашку другая шашка
+            guard let newCheckerView = newCheckerView, newCheckerView.subviews.isEmpty,
+                  let checker = sender.view else { return }
+            
+            newCheckerView.addSubview(checker) // добавляем шашку на новую клетку
+            
+            guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
+            
+            UIView.animate(withDuration: 0.3) {
+                currentChecker.transform = .identity
+            }
+            
+            currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
             
         default:
             break
