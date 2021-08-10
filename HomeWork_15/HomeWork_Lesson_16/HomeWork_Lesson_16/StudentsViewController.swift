@@ -76,60 +76,25 @@ extension StudentsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StudentsTableViewCell") as? StudentsTableViewCell else {
             return UITableViewCell()
         }
-        
+    
         let section = indexPath.section
         
-        if section == 0 {
-            let groupOfStudents = calculateCount(students: students, category: "A-grade")
-            let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
-            
-            cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
-            cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
-            
-            cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
-            
+        let grade = getGrade(section: section)
+        
+        if grade.isEmpty {
             return cell
         }
         
-        if section == 1 {
-            let groupOfStudents = calculateCount(students: students, category: "B-grade")
-            
-            let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
-            
-            cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
-            cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
-            
-            cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
-            
-            return cell
-        }
+        let groupOfStudents = calculateCount(students: students, category: grade)
+        let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
         
-        if section == 2 {
-            let groupOfStudents = calculateCount(students: students, category: "C-grade")
-            
-            let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
-            
-            cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
-            cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
-            
-            cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
-            
-            return cell
-        }
+        cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
+        cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
         
-        if section == 3 {
-            let groupOfStudents = calculateCount(students: students, category: "D-grade")
-            let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
-            
-            cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
-            cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
-            
-            cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
-            
-            return cell
-        }
-    
+        cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
+        
         return cell
+        
     }
     
 }
@@ -161,3 +126,17 @@ func calculateCount(students: [Student], category: String?) -> [Student] {
     return groupOfStudent
 }
 
+func getGrade(section: Int) -> String {
+    switch section {
+    case 0:
+        return "A-grade"
+    case 1:
+        return "B-grade"
+    case 2:
+        return "C-grade"
+    case 3:
+        return "D-grade"
+    default:
+        return ""
+    }
+}
