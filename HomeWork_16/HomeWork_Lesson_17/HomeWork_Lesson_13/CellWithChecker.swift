@@ -33,6 +33,6 @@ class CellWithChecker: NSObject, NSCoding, NSSecureCoding {
     required init?(coder: NSCoder) {//раскодируем данные
         self.positionX = coder.decodeObject(forKey: KeyesForFile.cellPositionX.rawValue) as? CGFloat ?? 0
         self.positionY = coder.decodeObject(forKey: KeyesForFile.cellPositionY.rawValue) as? CGFloat ?? 0
-        self.colorOfChecker = coder.decodeObject(forKey: KeyesForFile.colorOfCheckerInCell.rawValue) as? Int ?? 0
+        self.colorOfChecker = coder.decodeInteger(forKey: KeyesForFile.colorOfCheckerInCell.rawValue)
     }
 }

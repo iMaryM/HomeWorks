@@ -11,5 +11,4 @@ enum KeyesForFile: String {
     case cellPositionX = "cellPositionX_"
     case cellPositionY = "cellPositionY_"
     case colorOfCheckerInCell = "colorOfCheckerInCell_"
-    
 }

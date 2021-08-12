@@ -39,7 +39,7 @@ class CheckersViewController: UIViewController {
         let screenSize = UIScreen.main.bounds
 
         if isNewGame {
-            //удаление файла игрой
+            //удаление файла с сохраненной игрой
             let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")
             try? FileManager.default.removeItem(at: fileURL)
@@ -65,10 +65,14 @@ class CheckersViewController: UIViewController {
         timer.invalidate()
         presentAlertController(with: nil, message: "Do you want to save the game?", actionButtons: UIAlertAction(title: "Save", style: .default, handler: { _ in
             
-            print("Save")
+            let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")
             
             // записали время таймера (секунды) в файл
             UserDefaults.standard.setValue(self.second, forKey: KeyesUserDefaults.seconds.rawValue)
+            
+            //обнуляем массив (чтобы записывалось заново, а не дописывалось новое)
+            self.cellsWithChecker.removeAll()
             
             //находим клеточки с шашками и записываем их в массив
             for value in self.checkerBoard.subviews {
@@ -79,14 +83,10 @@ class CheckersViewController: UIViewController {
                 }
             }
             
-            //создаем файл
-            let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")
-            
             //записать в файл массив клеточек с шашками
             let data = try? NSKeyedArchiver.archivedData(withRootObject: self.cellsWithChecker, requiringSecureCoding: true)
             try? data?.write(to: fileURL)
-
+            
             self.navigationController?.popViewController(animated: true)
             self.timer.invalidate()
         }), UIAlertAction(title: "Don't save", style: .destructive, handler: { _ in
@@ -283,10 +283,6 @@ class CheckersViewController: UIViewController {
         
         var x: CGFloat = 0
         var y: CGFloat = 0
-        
-        for cell in self.cellsWithChecker {
-            print("\(cell.positionX) \(cell.positionY) \(cell.colorOfChecker)")
-        }
         
         for i in 1...8 {
             x = 0
