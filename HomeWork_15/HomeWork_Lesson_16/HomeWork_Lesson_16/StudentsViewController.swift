@@ -31,8 +31,10 @@ class StudentsViewController: UIViewController {
         Student(firstName: "Hemsvort", lastName: "Chris"),
         Student(firstName: "Manzhos", lastName: "Mary")
     ]
-
-    var categoriesOfStudents: [String] = []
+    
+    var sortedStudents: Dictionary = [String : [Student]]()
+    
+    var titlesOfSections: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,53 +46,40 @@ class StudentsViewController: UIViewController {
         
         studentTableView.register(UINib(nibName: "StudentsTableViewCell", bundle: nil), forCellReuseIdentifier: "StudentsTableViewCell")
         
+        //получить ключи и для каждого улюча добавить свой список студентов
+        
         for value in students {
-            if !categoriesOfStudents.contains(value.category) {
-                categoriesOfStudents.append(value.category)
+            if !sortedStudents.keys.contains(value.category){
+                sortedStudents["\(value.category)"] =  students.filter({$0.category == value.category})
             }
         }
-        categoriesOfStudents.sort()
+        
+        titlesOfSections = sortedStudents.keys.sorted()
     }
 
 }
 
 extension StudentsViewController: UITableViewDataSource {
+    
+    //количество ячеек в секции = количество студентов в массиве по ключу
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch categoriesOfStudents[section] {
-        case "A-grade":
-            return calculateCount(students: students, category: "A-grade").count
-        case "B-grade":
-            return calculateCount(students: students, category: "B-grade").count
-        case "C-grade":
-            return calculateCount(students: students, category: "C-grade").count
-        case "D-grade":
-            return calculateCount(students: students, category: "D-grade").count
-        default:
+        guard let countOfstudents = sortedStudents[titlesOfSections[section]] else {
             return 0
         }
+        
+        return countOfstudents.count
     }
     
-    
+    //содержимое ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StudentsTableViewCell") as? StudentsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StudentsTableViewCell") as? StudentsTableViewCell,
+              let students = sortedStudents[titlesOfSections[indexPath.section]] else {
             return UITableViewCell()
         }
-    
-        let section = indexPath.section
-        
-        let grade = getGrade(section: section)
-        
-        if grade.isEmpty {
-            return cell
-        }
-        
-        let groupOfStudents = calculateCount(students: students, category: grade)
-        let sortedStudents = groupOfStudents.sorted(by: {$0.firstName < $1.firstName})
-        
+        let sortedStudents = students.sorted {$0.firstName < $1.firstName}
         cell.labelFIO.text = "\(sortedStudents[indexPath.row].firstName) \(sortedStudents[indexPath.row].lastName)"
         cell.labelAverageScore.text = "\(sortedStudents[indexPath.row].averageScore)"
-        
         cell.labelFIO.textColor = sortedStudents[indexPath.row].averageScore < 4 ? .red : .black
         
         return cell
@@ -100,43 +89,21 @@ extension StudentsViewController: UITableViewDataSource {
 }
 
 extension StudentsViewController: UITableViewDelegate {
+    //высота одной ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
+    //количество секций в таблице
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categoriesOfStudents.count
+        return titlesOfSections.count
     }
 
+    //заголовок секции
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(categoriesOfStudents[section])"
+        return titlesOfSections[section]
     }
     
 }
 
-func calculateCount(students: [Student], category: String?) -> [Student] {
-    var groupOfStudent: [Student] = []
-    
-    for value in students{
-        if value.category == category{
-            groupOfStudent.append(value)
-        }
-    }
-    
-    return groupOfStudent
-}
 
-func getGrade(section: Int) -> String {
-    switch section {
-    case 0:
-        return "A-grade"
-    case 1:
-        return "B-grade"
-    case 2:
-        return "C-grade"
-    case 3:
-        return "D-grade"
-    default:
-        return ""
-    }
-}

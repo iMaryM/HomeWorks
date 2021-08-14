@@ -1,15 +1,15 @@
 //
-//  TableViewCell.swift
-//  Lesson_16_App
+//  TableViewCell2.swift
+//  HomeWork_Lesson_16
 //
-//  Created by Мария Манжос on 8.08.21.
+//  Created by Мария Манжос on 14.08.21.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var labelCell: UILabel!
+class TableViewCell2: UITableViewCell {
+
+    @IBOutlet weak var labelColor: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +21,5 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        labelCell.text = ""
-    }
+    
 }
- 

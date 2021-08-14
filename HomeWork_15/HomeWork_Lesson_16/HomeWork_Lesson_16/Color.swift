@@ -8,22 +8,20 @@
 import UIKit
 
 class Color {
+    
+    let red: Int = Int.random(in: 0...255)
+    let green: Int = Int.random(in: 0...255)
+    let blue: Int = Int.random(in: 0...255)
+    
     let color: UIColor
     let nameOfColor: String
     
-    init(color: UIColor, nameOfColor: String) {
-        self.color = color
+    init(nameOfColor: String) {
+        self.color = UIColor(red: CGFloat(red) / 255,
+                             green: CGFloat(green) / 255,
+                             blue: CGFloat(blue) / 255,
+                             alpha: 1.0)
         self.nameOfColor = nameOfColor
-    }
-    
-    static func createColors(count: Int) -> [Color] {
-        var colors: [Color] = []
-        for i in 0...count{
-            let color = UIColor.random()
-            colors.append(Color(color: color, nameOfColor: "Color\(i)"))
-        }
-        
-        return colors
     }
     
 }

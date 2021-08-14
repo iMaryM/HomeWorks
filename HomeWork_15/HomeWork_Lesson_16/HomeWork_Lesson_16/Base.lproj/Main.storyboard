@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table of Colors-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HomeWork_Lesson_16" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,15 +30,44 @@
                             <constraint firstItem="xSf-e7-QAG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qBl-us-TCY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Table of Colors" id="DOa-rW-1Gb"/>
+                    <navigationItem key="navigationItem" id="DOa-rW-1Gb"/>
                     <connections>
-                        <outlet property="navigationBar" destination="DOa-rW-1Gb" id="Io0-AP-aBH"/>
                         <outlet property="tableView" destination="xSf-e7-QAG" id="Rm0-4d-7X1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="acS-Gf-fSt">
+            <objects>
+                <viewController storyboardIdentifier="ViewController2" id="7er-IA-7kw" customClass="ViewController2" customModule="HomeWork_Lesson_16" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NhY-qs-39X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-iY-E2H">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CrS-pF-9wJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CrS-pF-9wJ" firstAttribute="bottom" secondItem="iXk-iY-E2H" secondAttribute="bottom" id="JC9-mm-RbI"/>
+                            <constraint firstItem="iXk-iY-E2H" firstAttribute="top" secondItem="CrS-pF-9wJ" secondAttribute="top" id="Q0Q-vP-yBL"/>
+                            <constraint firstItem="iXk-iY-E2H" firstAttribute="leading" secondItem="CrS-pF-9wJ" secondAttribute="leading" id="VyM-uG-gwX"/>
+                            <constraint firstItem="CrS-pF-9wJ" firstAttribute="trailing" secondItem="iXk-iY-E2H" secondAttribute="trailing" id="Wkg-gK-Yu4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="iXk-iY-E2H" id="P9W-42-p2L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QrS-2M-7Ke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1725" y="94"/>
         </scene>
         <!--Students View Controller-->
         <scene sceneID="wbn-QN-uCI">
@@ -69,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHV-By-kSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.8840579710147" y="93.75"/>
+            <point key="canvasLocation" x="2510" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DdJ-fX-SkG">

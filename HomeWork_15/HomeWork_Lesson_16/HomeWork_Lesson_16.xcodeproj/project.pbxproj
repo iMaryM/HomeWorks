@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8413626126C7B868001D4ECE /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413626026C7B868001D4ECE /* ViewController2.swift */; };
+		8413626426C7B915001D4ECE /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413626226C7B915001D4ECE /* TableViewCell2.swift */; };
+		8413626526C7B915001D4ECE /* TableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413626326C7B915001D4ECE /* TableViewCell2.xib */; };
 		84285F5826C1584300F22593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84285F5726C1584300F22593 /* AppDelegate.swift */; };
 		84285F5A26C1584300F22593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84285F5926C1584300F22593 /* SceneDelegate.swift */; };
 		84285F5C26C1584300F22593 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84285F5B26C1584300F22593 /* ViewController.swift */; };
@@ -15,7 +18,6 @@
 		84285F6426C1584400F22593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84285F6226C1584400F22593 /* LaunchScreen.storyboard */; };
 		8490132826C17D1F004FE0B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490132626C17D1F004FE0B9 /* TableViewCell.swift */; };
 		8490132926C17D1F004FE0B9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8490132726C17D1F004FE0B9 /* TableViewCell.xib */; };
-		8490132C26C17F06004FE0B9 /* UIColor+CoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490132B26C17F06004FE0B9 /* UIColor+CoreKit.swift */; };
 		8490132E26C18F45004FE0B9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490132D26C18F45004FE0B9 /* Color.swift */; };
 		8490137526C1BAF0004FE0B9 /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490137426C1BAF0004FE0B9 /* StudentsViewController.swift */; };
 		8490137826C1BD59004FE0B9 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490137726C1BD59004FE0B9 /* Student.swift */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8413626026C7B868001D4ECE /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		8413626226C7B915001D4ECE /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
+		8413626326C7B915001D4ECE /* TableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell2.xib; sourceTree = "<group>"; };
 		84285F5426C1584300F22593 /* HomeWork_Lesson_16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork_Lesson_16.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84285F5726C1584300F22593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84285F5926C1584300F22593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +39,6 @@
 		84285F6526C1584400F22593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8490132626C17D1F004FE0B9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8490132726C17D1F004FE0B9 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		8490132B26C17F06004FE0B9 /* UIColor+CoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CoreKit.swift"; sourceTree = "<group>"; };
 		8490132D26C18F45004FE0B9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8490137426C1BAF0004FE0B9 /* StudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
 		8490137726C1BD59004FE0B9 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -53,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8413625B26C7B828001D4ECE /* Task_2 */ = {
+			isa = PBXGroup;
+			children = (
+				8413626026C7B868001D4ECE /* ViewController2.swift */,
+				8413626226C7B915001D4ECE /* TableViewCell2.swift */,
+				8413626326C7B915001D4ECE /* TableViewCell2.xib */,
+			);
+			path = Task_2;
+			sourceTree = "<group>";
+		};
 		84285F4B26C1584300F22593 = {
 			isa = PBXGroup;
 			children = (
@@ -73,11 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				8490137926C1C300004FE0B9 /* StudentsTableCell */,
-				8490132A26C17EEB004FE0B9 /* Extensions */,
-				8490132526C17D04004FE0B9 /* TableViewCell */,
+				8490132526C17D04004FE0B9 /* Task_1 */,
+				8413625B26C7B828001D4ECE /* Task_2 */,
 				84285F5726C1584300F22593 /* AppDelegate.swift */,
 				84285F5926C1584300F22593 /* SceneDelegate.swift */,
-				84285F5B26C1584300F22593 /* ViewController.swift */,
 				84285F5D26C1584300F22593 /* Main.storyboard */,
 				84285F6026C1584400F22593 /* Assets.xcassets */,
 				84285F6226C1584400F22593 /* LaunchScreen.storyboard */,
@@ -89,21 +102,14 @@
 			path = HomeWork_Lesson_16;
 			sourceTree = "<group>";
 		};
-		8490132526C17D04004FE0B9 /* TableViewCell */ = {
+		8490132526C17D04004FE0B9 /* Task_1 */ = {
 			isa = PBXGroup;
 			children = (
+				84285F5B26C1584300F22593 /* ViewController.swift */,
 				8490132626C17D1F004FE0B9 /* TableViewCell.swift */,
 				8490132726C17D1F004FE0B9 /* TableViewCell.xib */,
 			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
-		8490132A26C17EEB004FE0B9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8490132B26C17F06004FE0B9 /* UIColor+CoreKit.swift */,
-			);
-			path = Extensions;
+			path = Task_1;
 			sourceTree = "<group>";
 		};
 		8490137926C1C300004FE0B9 /* StudentsTableCell */ = {
@@ -176,6 +182,7 @@
 				8490132926C17D1F004FE0B9 /* TableViewCell.xib in Resources */,
 				84285F6126C1584400F22593 /* Assets.xcassets in Resources */,
 				84285F5F26C1584300F22593 /* Main.storyboard in Resources */,
+				8413626526C7B915001D4ECE /* TableViewCell2.xib in Resources */,
 				8490137D26C1C346004FE0B9 /* StudentsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,10 +198,11 @@
 				8490132E26C18F45004FE0B9 /* Color.swift in Sources */,
 				8490132826C17D1F004FE0B9 /* TableViewCell.swift in Sources */,
 				8490137826C1BD59004FE0B9 /* Student.swift in Sources */,
+				8413626126C7B868001D4ECE /* ViewController2.swift in Sources */,
 				84285F5826C1584300F22593 /* AppDelegate.swift in Sources */,
 				8490137C26C1C346004FE0B9 /* StudentsTableViewCell.swift in Sources */,
-				8490132C26C17F06004FE0B9 /* UIColor+CoreKit.swift in Sources */,
 				8490137526C1BAF0004FE0B9 /* StudentsViewController.swift in Sources */,
+				8413626426C7B915001D4ECE /* TableViewCell2.swift in Sources */,
 				84285F5A26C1584300F22593 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
