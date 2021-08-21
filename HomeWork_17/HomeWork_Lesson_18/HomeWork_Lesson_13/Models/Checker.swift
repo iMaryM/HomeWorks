@@ -11,17 +11,17 @@ class Checker: NSObject, NSCoding, NSSecureCoding {
     static var supportsSecureCoding: Bool = true
     
     var imageName: String?
-    var color: Int = 0
+    var color: Checker_color = .white_checker
     
     var image: UIImage? {
-        get {
-            return UIImage(named: self.imageName!)
-        }
+        return UIImage(named: self.imageName!)
     }
     
     init(imageName: String, color: Int) {
         self.imageName = imageName
-        self.color = color
+        if let color = Checker_color(rawValue: color) {
+            self.color = color
+        }
     }
     
     override init() {
@@ -30,11 +30,13 @@ class Checker: NSObject, NSCoding, NSSecureCoding {
     
     func encode(with coder: NSCoder) { //кодируем данные
         coder.encode(image, forKey: KeyesForFile.checkerImage.rawValue)
-        coder.encode(color, forKey: KeyesForFile.checkerColor.rawValue)
+        coder.encode(color.rawValue, forKey: KeyesForFile.checkerColor.rawValue)
     }
     
     required init?(coder: NSCoder) {//раскодируем данные
         self.imageName = coder.decodeObject(forKey: KeyesForFile.checkerImage.rawValue) as? String ?? ""
-        self.color = coder.decodeInteger(forKey: KeyesForFile.checkerColor.rawValue)
+        if let color = Checker_color(rawValue: coder.decodeInteger(forKey: KeyesForFile.checkerColor.rawValue)) {
+            self.color = color
+        }
     }
 }

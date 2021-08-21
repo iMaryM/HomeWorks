@@ -37,7 +37,7 @@ class CheckersViewController: UIViewController {
         super.viewDidLoad()
         
         let screenSize = UIScreen.main.bounds
-
+        
         if isNewGame {
             //удаление файла с сохраненной игрой
             deleteFile()
@@ -74,18 +74,6 @@ class CheckersViewController: UIViewController {
             self.saveUserDefaults(value: self.second, forKey: KeyesUserDefaults.seconds.rawValue)
             //записываем цвет шашки которая должна ходить в UserDefaults
             self.saveUserDefaults(value: self.currentCheckerToMove.rawValue, forKey: KeyesUserDefaults.movedChecker.rawValue)
-            
-            //записываем картинку белой шашки в UserDefaults
-            guard let checkerColor = self.arrayOfCells.first!.checker?.color,
-                  let checkerImage = self.arrayOfCells.first!.checker?.imageName else {return}
-            
-            if checkerColor == Checker_color.white_checker.rawValue {
-                self.saveUserDefaults(value: checkerImage, forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)
-                }
-            
-            if checkerColor == Checker_color.black_checker.rawValue {
-                self.saveUserDefaults(value: checkerImage, forKey: KeyesUserDefaults.blackCheckerImage.rawValue)
-                }
             
             //обнуляем массив (чтобы записывалось заново, а не дописывалось новое)
             self.cellsWithChecker.removeAll()

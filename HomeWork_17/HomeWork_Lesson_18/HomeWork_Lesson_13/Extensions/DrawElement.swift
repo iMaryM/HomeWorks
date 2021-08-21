@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension UIViewController {
+extension CheckersViewController {
+    
     func drawCheckerboard(screenSize: CGRect) -> UIView {
         
         //отрисовка рамочки для доски
@@ -64,7 +65,7 @@ extension UIViewController {
         for (index,value) in checkerBoard.subviews.enumerated(){
             if index < 23 || index > 39, value.tag == 0 {
                 checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
-                checkerView.image = UIImage(named: index < 23 ? "Checker_white_1" : "Checker_black_1")
+                checkerView.image = UIImage(named: index < 23 ? UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)! : UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue)!)
                 checkerView.tag = (index < 23) ? 0 : 1
                 checkerView.isUserInteractionEnabled = true
                 
@@ -92,8 +93,8 @@ extension UIViewController {
                     }
                     
                     checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
-                    checkerView.tag = checkerInCell.color
-                    checkerView.image = UIImage(named:(checkerInCell.color == 0) ? "white_checker" : "black_checker")
+                    checkerView.tag = checkerInCell.color.rawValue
+                    checkerView.image = UIImage(named:(checkerInCell.color.rawValue == 0) ? UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)! : UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue)!)
                     checkerView.isUserInteractionEnabled = true
                     
                     cell.addSubview(checkerView)

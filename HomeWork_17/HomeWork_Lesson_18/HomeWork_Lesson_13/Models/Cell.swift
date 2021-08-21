@@ -15,6 +15,8 @@ class Cell: NSObject, NSCoding, NSSecureCoding {
     var color: Int = 0
     var checker: Checker? = nil
     
+    // сделать через гетер имадж
+    
     init(position: CGPoint, image: UIImage?, color: Int) {
         self.position = position
         self.image = image
