@@ -40,22 +40,8 @@ class CheckersViewController: UIViewController {
         super.viewDidLoad()
         
         let screenSize = UIScreen.main.bounds
-
-        let fileURL = documentDirectoryURL.appendingPathComponent("customSettings")
-
-        guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")),
-              let object = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIImage.self, from: data) else {
-            view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            return
-        }
-
-        let image = object
         
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFill
-        view.addSubview(imageView)
-        
-        imageView.addSubview(blurNavigationBar)
+        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         if isNewGame {
             //удаление файла с сохраненной игрой
@@ -79,7 +65,20 @@ class CheckersViewController: UIViewController {
         
         timer = Timer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .common)
-    
+
+        let fileURL = documentDirectoryURL.appendingPathComponent("customSettings")
+
+        guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")),
+              let object = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIImage.self, from: data) else {
+            
+            return
+        }
+
+        let image = object
+        
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        
     }
     
     @IBAction func backToMenu(_ sender: Any) {

@@ -11,3 +11,9 @@ enum Checker_color: Int {
     case white_checker = 0
     case black_checker = 1
 }
+
+enum Colors: String {
+    case lightBlue
+    case mediumBlue
+    case darkBlue
+}

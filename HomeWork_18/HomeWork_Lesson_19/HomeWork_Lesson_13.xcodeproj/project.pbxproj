@@ -12,6 +12,7 @@
 		8413623026C51322001D4ECE /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413622F26C51322001D4ECE /* Cell.swift */; };
 		8413623226C52B47001D4ECE /* KeyesForFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413623126C52B47001D4ECE /* KeyesForFile.swift */; };
 		844D458B26BD8F1500F426B0 /* StyleScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844D458A26BD8F1500F426B0 /* StyleScript-Regular.ttf */; };
+		844F5FBE26D3E53200D9F8BB /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F5FBD26D3E53200D9F8BB /* StyleManager.swift */; };
 		8464889726CCE3D100C08884 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464889526CCE3D100C08884 /* SettingsTableViewCell.swift */; };
 		8464889826CCE3D100C08884 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8464889626CCE3D100C08884 /* SettingsTableViewCell.xib */; };
 		8464889A26CCED1000C08884 /* CustomChecker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8464889926CCED1000C08884 /* CustomChecker.storyboard */; };
@@ -35,6 +36,8 @@
 		8481DC6026B55FD300840FB3 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481DC5F26B55FD300840FB3 /* ResultsViewController.swift */; };
 		8481DC6226B563DE00840FB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481DC6126B563DE00840FB3 /* SettingsViewController.swift */; };
 		8481DC6426B563E900840FB3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481DC6326B563E900840FB3 /* Settings.storyboard */; };
+		84A897DB26D2BE85006FB831 /* CustomButtonMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A897DA26D2BE85006FB831 /* CustomButtonMainMenu.swift */; };
+		84A897DD26D2BEE1006FB831 /* CustomButtonMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A897DC26D2BEE1006FB831 /* CustomButtonMainMenu.xib */; };
 		84AC994026BFCFE800BF2F68 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC993F26BFCFE800BF2F68 /* HistoryViewController.swift */; };
 		84AC994226BFCFF400BF2F68 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AC994126BFCFF400BF2F68 /* History.storyboard */; };
 		84D144DB26D15A820024B9DE /* CustomBackground.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D144DA26D15A820024B9DE /* CustomBackground.storyboard */; };
@@ -47,6 +50,7 @@
 		8413622F26C51322001D4ECE /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		8413623126C52B47001D4ECE /* KeyesForFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyesForFile.swift; sourceTree = "<group>"; };
 		844D458A26BD8F1500F426B0 /* StyleScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyleScript-Regular.ttf"; sourceTree = "<group>"; };
+		844F5FBD26D3E53200D9F8BB /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		8464889526CCE3D100C08884 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		8464889626CCE3D100C08884 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		8464889926CCED1000C08884 /* CustomChecker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomChecker.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		8481DC5F26B55FD300840FB3 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		8481DC6126B563DE00840FB3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8481DC6326B563E900840FB3 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		84A897DA26D2BE85006FB831 /* CustomButtonMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonMainMenu.swift; sourceTree = "<group>"; };
+		84A897DC26D2BEE1006FB831 /* CustomButtonMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButtonMainMenu.xib; sourceTree = "<group>"; };
 		84AC993F26BFCFE800BF2F68 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		84AC994126BFCFF400BF2F68 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		84D144DA26D15A820024B9DE /* CustomBackground.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomBackground.storyboard; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		8481DC3F26AF42DD00840FB3 /* HomeWork_Lesson_13 */ = {
 			isa = PBXGroup;
 			children = (
+				84A897D926D2BE59006FB831 /* CustomButton */,
 				844D458926BD8EF400F426B0 /* Fonts */,
 				8481DC5A26AF565700840FB3 /* Extensions */,
 				8464889D26CCF13500C08884 /* Models */,
@@ -174,6 +181,7 @@
 				8413622926C444D6001D4ECE /* KeyesUserDefaults.swift */,
 				8413623126C52B47001D4ECE /* KeyesForFile.swift */,
 				846488A026CCF57700C08884 /* Enum.swift */,
+				844F5FBD26D3E53200D9F8BB /* StyleManager.swift */,
 			);
 			path = HomeWork_Lesson_13;
 			sourceTree = "<group>";
@@ -215,6 +223,15 @@
 				846488A426CD371000C08884 /* AttributedText.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84A897D926D2BE59006FB831 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				84A897DA26D2BE85006FB831 /* CustomButtonMainMenu.swift */,
+				84A897DC26D2BEE1006FB831 /* CustomButtonMainMenu.xib */,
+			);
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +295,7 @@
 				84D144DB26D15A820024B9DE /* CustomBackground.storyboard in Resources */,
 				8481DC5E26B55BBD00840FB3 /* Results.storyboard in Resources */,
 				844D458B26BD8F1500F426B0 /* StyleScript-Regular.ttf in Resources */,
+				84A897DD26D2BEE1006FB831 /* CustomButtonMainMenu.xib in Resources */,
 				8464889826CCE3D100C08884 /* SettingsTableViewCell.xib in Resources */,
 				84AC994226BFCFF400BF2F68 /* History.storyboard in Resources */,
 				8481DC4A26AF42DF00840FB3 /* Assets.xcassets in Resources */,
@@ -300,6 +318,7 @@
 				84D144DD26D15AA50024B9DE /* CustomBackgroundViewController.swift in Sources */,
 				8481DC4526AF42DD00840FB3 /* MainViewController.swift in Sources */,
 				846488A326CD339100C08884 /* DrawElement.swift in Sources */,
+				84A897DB26D2BE85006FB831 /* CustomButtonMainMenu.swift in Sources */,
 				8464889F26CCF16A00C08884 /* Checker.swift in Sources */,
 				8481DC4126AF42DD00840FB3 /* AppDelegate.swift in Sources */,
 				8481DC6226B563DE00840FB3 /* SettingsViewController.swift in Sources */,
@@ -314,6 +333,7 @@
 				8413622E26C44BB4001D4ECE /* UIViewController+Alert.swift in Sources */,
 				8481DC4326AF42DD00840FB3 /* SceneDelegate.swift in Sources */,
 				8481DC6026B55FD300840FB3 /* ResultsViewController.swift in Sources */,
+				844F5FBE26D3E53200D9F8BB /* StyleManager.swift in Sources */,
 				8413622A26C444D6001D4ECE /* KeyesUserDefaults.swift in Sources */,
 				84AC994026BFCFE800BF2F68 /* HistoryViewController.swift in Sources */,
 			);

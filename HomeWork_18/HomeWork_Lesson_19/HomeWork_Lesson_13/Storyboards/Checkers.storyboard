@@ -20,6 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z7y-7O-74K">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4k-7d-iYb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e2g-zB-rLJ">
@@ -33,7 +36,7 @@
                                                 <color key="titleColor" red="0.26306366920000002" green="0.26992750170000002" blue="0.31765607000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <action selector="backToMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eyR-pB-gkK"/>
+                                                <action selector="backToMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1Lu-GT-vFm"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -47,9 +50,6 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z7y-7O-74K">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.9333010316" green="0.91353064780000004" blue="0.92942184210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

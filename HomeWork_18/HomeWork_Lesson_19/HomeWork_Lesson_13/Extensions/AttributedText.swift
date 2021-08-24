@@ -15,15 +15,15 @@ extension UIViewController{
         
         let attributedString = NSMutableAttributedString(string: string, attributes: attrs)
         attrs = [
-            .foregroundColor : UIColor(red: 154 / 255, green: 189 / 255, blue: 203 / 255, alpha: 1)]
+            .foregroundColor : SteyleManager.setColor(color: .lightBlue)]
         attributedString.addAttributes(attrs, range: _NSRange(location: 0, length: 2))
         
         attrs = [
-            .foregroundColor : UIColor(red: 84 / 255, green: 125 / 255, blue: 140 / 255, alpha: 1)]
+            .foregroundColor : SteyleManager.setColor(color: .mediumBlue)]
         attributedString.addAttributes(attrs, range: _NSRange(location: 5, length: 2))
         
         attrs = [
-            .foregroundColor : UIColor(red: 51 / 255, green: 69 / 255, blue: 80 / 255, alpha: 1)]
+            .foregroundColor : SteyleManager.setColor(color: .darkBlue)]
         attributedString.addAttributes(attrs, range: _NSRange(location: 10, length: 2))
         
         return attributedString
