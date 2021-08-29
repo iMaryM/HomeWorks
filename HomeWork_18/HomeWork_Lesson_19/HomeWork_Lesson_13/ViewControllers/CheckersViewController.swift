@@ -61,20 +61,14 @@ class CheckersViewController: UIViewController {
         
         drawTimer(screenSize: screenSize, timerLabel: &timerLabel)
         
-        second = UserDefaults.standard.integer(forKey: KeyesUserDefaults.seconds.rawValue)
+        second = SettingsManager.shared.savedTimer
         
         timer = Timer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .common)
 
-        let fileURL = documentDirectoryURL.appendingPathComponent("customSettings")
-
-        guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")),
-              let object = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIImage.self, from: data) else {
-            
+        guard let image = SettingsManager.shared.savedBackgroungOfCheckersView as? UIImage else {
             return
         }
-
-        let image = object
         
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
@@ -89,9 +83,9 @@ class CheckersViewController: UIViewController {
             self.arrayOfCells = self.createCells(from: self.checkerBoard)
             
             //записываем время таймера (секунды) в UserDefaults
-            self.saveUserDefaults(value: self.second, forKey: KeyesUserDefaults.seconds.rawValue)
+            SettingsManager.shared.savedTimer = self.second
             //записываем цвет шашки которая должна ходить в UserDefaults
-            self.saveUserDefaults(value: self.currentCheckerToMove.rawValue, forKey: KeyesUserDefaults.movedChecker.rawValue)
+            SettingsManager.shared.savedColorOfCheckerShouldBeMoved = self.currentCheckerToMove.rawValue
             
             //обнуляем массив (чтобы записывалось заново, а не дописывалось новое)
             self.cellsWithChecker.removeAll()
@@ -104,7 +98,7 @@ class CheckersViewController: UIViewController {
             }
             
             //сохраняем в файл массив клеточек с шашками
-            self.saveToFile()
+            SettingsManager.shared.savedCellsWithCheckers = self.cellsWithChecker
             
             self.navigationController?.popViewController(animated: true)
             self.timer.invalidate()
@@ -231,7 +225,7 @@ class CheckersViewController: UIViewController {
     func drawSavedCheckerBoard(screenSize: CGRect) {
 
         //забираем данные из файла
-        getFromFile()
+        self.cellsWithChecker = SettingsManager.shared.savedCellsWithCheckers
 
         //отрисовка доски
         checkerBoard = drawCheckerboard(screenSize: screenSize)
@@ -271,10 +265,6 @@ class CheckersViewController: UIViewController {
         return timeString
     }
     
-    func saveUserDefaults(value: Any?, forKey: String) {
-        UserDefaults.standard.setValue(value, forKey: forKey)
-    }
-    
     func createCells(from checkerboard: UIView) -> [Cell] {
         
         var newCell = Cell()
@@ -302,28 +292,11 @@ class CheckersViewController: UIViewController {
         
     }
     
-    func saveToFile() {
-        let fileURL = self.documentDirectoryURL.appendingPathComponent("savedGame")
-        //записать в файл массив клеточек с шашками
-        let data = try? NSKeyedArchiver.archivedData(withRootObject: self.cellsWithChecker, requiringSecureCoding: true)
-        try? data?.write(to: fileURL)
-    }
-    
-    func getFromFile() {
-        let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")
-
-        guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")),
-              let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Cell] else { return }
-
-        self.cellsWithChecker = object
-    }
-    
     func deleteFile() {
         //удаление файла игрой
         let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")
         try? FileManager.default.removeItem(at: fileURL)
     }
-    
     
 }
 

@@ -88,46 +88,14 @@ extension CustomBackgroundViewController: UIImagePickerControllerDelegate, UINav
     //действия по нажатию на изображение в галерее с фото
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        
-        
         //сохранение в файл
-        let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileURL = documentDirectoryURL.appendingPathComponent("customSettings")
-        
-        try? FileManager.default.removeItem(at: fileURL)
-        
         guard let image = info[.originalImage] else { return }
         
-        let data = try? NSKeyedArchiver.archivedData(withRootObject: image, requiringSecureCoding: true)
-        try? data?.write(to: fileURL)
-    
-//        let storyboard = UIStoryboard(name: "ViewPhotoViewController", bundle: nil)
-//
-//        guard let image = info[.originalImage] as? UIImage,
-//              let vc = storyboard.instantiateInitialViewController() as? ViewPhotoViewController else { return }
-//        vc.image = image
-//        vc.modalPresentationStyle = .fullScreen
-//        vc.modalTransitionStyle = .crossDissolve
-//        let screenImage = takeScreenshot()
-//        picker.dismiss(animated: true) {
-//            self.present(vc, animated: true, completion: nil)
-//        }
+        SettingsManager.shared.savedBackgroungOfCheckersView = image
         
         picker.dismiss(animated: true, completion: nil)
         
     }
-    
-//    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
-//        UIGraphicsBeginImageContextWithOptions(view.layer.frame.size, false, 1.0);
-//        guard let context = UIGraphicsGetCurrentContext() else {return nil}
-//        view.layer.render(in:context)
-//        let screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        if let image = screenshotImage, shouldSave {
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//        }
-//        return screenshotImage
-//    }
     
     //действие для кнопки Cancel на галерее с фотами
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

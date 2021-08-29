@@ -65,7 +65,7 @@ extension CheckersViewController {
         for (index,value) in checkerBoard.subviews.enumerated(){
             if index < 23 || index > 39, value.tag == 0 {
                 checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
-                checkerView.image = UIImage(named: index < 23 ? UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)! : UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue)!)
+                checkerView.image = UIImage(named: index < 23 ? (SettingsManager.shared.savedWhiteChecker)! : (SettingsManager.shared.savedBlackChecker)!)
                 checkerView.tag = (index < 23) ? 0 : 1
                 checkerView.isUserInteractionEnabled = true
                 
@@ -94,7 +94,7 @@ extension CheckersViewController {
                     
                     checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
                     checkerView.tag = checkerInCell.color.rawValue
-                    checkerView.image = UIImage(named:(checkerInCell.color.rawValue == 0) ? UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)! : UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue)!)
+                    checkerView.image = UIImage(named:(checkerInCell.color.rawValue == 0) ? (SettingsManager.shared.savedWhiteChecker)! : (SettingsManager.shared.savedBlackChecker)!)
                     checkerView.isUserInteractionEnabled = true
                     
                     cell.addSubview(checkerView)

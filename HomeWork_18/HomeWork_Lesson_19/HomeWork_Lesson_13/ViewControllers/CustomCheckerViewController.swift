@@ -68,7 +68,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
         
         if collectionView == whiteCheckersQueenContollerView  {
             
-            guard let string = UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue) else {return 0}
+            guard let string = SettingsManager.shared.savedWhiteChecker else {return 0}
             
             whiteQueens.removeAll()
             
@@ -87,7 +87,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
         
         if collectionView == blackCheckersQueenContollerView  {
             
-            guard let string = UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue) else {return 0}
+            guard let string = SettingsManager.shared.savedBlackChecker else {return 0}
             
             blackQueens.removeAll()
             
@@ -111,7 +111,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            if UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue) == whiteCheckersImageName[indexPath.row] {
+            if SettingsManager.shared.savedWhiteChecker == whiteCheckersImageName[indexPath.row] {
                 
                 cell.checkedImage.isHidden = false
             }
@@ -126,7 +126,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            if UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerQueenImage.rawValue) == whiteQueens[indexPath.row] {
+            if SettingsManager.shared.savedWhiteCheckerQueen == whiteQueens[indexPath.row] {
                 
                 cell.checkedImage.isHidden = false
             }
@@ -141,7 +141,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            if UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue) == blackCheckersImageName[indexPath.row] {
+            if SettingsManager.shared.savedBlackChecker == blackCheckersImageName[indexPath.row] {
                 
                 cell.checkedImage.isHidden = false
             }
@@ -156,7 +156,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            if UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerQueenImage.rawValue) == blackQueens[indexPath.row] {
+            if SettingsManager.shared.savedBlackCheckerQueen == blackQueens[indexPath.row] {
                 
                 cell.checkedImage.isHidden = false
             }
@@ -174,11 +174,11 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
         
         if collectionView == whiteCheckersCollectionView {
             
-            UserDefaults.standard.setValue(whiteCheckersImageName[indexPath.row], forKey: KeyesUserDefaults.whiteCheckerImage.rawValue)
+            SettingsManager.shared.savedWhiteChecker = whiteCheckersImageName[indexPath.row]
             
-            guard let string = UserDefaults.standard.string(forKey: KeyesUserDefaults.whiteCheckerImage.rawValue) else {return }
+            guard let string = SettingsManager.shared.savedWhiteChecker else {return }
             
-            UserDefaults.standard.setValue("\(String(describing: string))_queen_1", forKey: KeyesUserDefaults.whiteCheckerQueenImage.rawValue)
+            SettingsManager.shared.savedWhiteCheckerQueen = "\(String(describing: string))_queen_1"
             
             whiteCheckersQueenContollerView.reloadData()
             whiteCheckersCollectionView.reloadData()
@@ -191,11 +191,11 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
 
         if collectionView == blackCheckersCollectionView {
             
-            UserDefaults.standard.setValue(blackCheckersImageName[indexPath.row], forKey: KeyesUserDefaults.blackCheckerImage.rawValue)
+            SettingsManager.shared.savedBlackChecker = blackCheckersImageName[indexPath.row]
             
-            guard let string = UserDefaults.standard.string(forKey: KeyesUserDefaults.blackCheckerImage.rawValue) else {return }
+            guard let string = SettingsManager.shared.savedBlackChecker else {return }
             
-            UserDefaults.standard.setValue("\(String(describing: string))_queen_1", forKey: KeyesUserDefaults.blackCheckerQueenImage.rawValue)
+            SettingsManager.shared.savedBlackCheckerQueen = "\(String(describing: string))_queen_1"
             
             blackCheckersQueenContollerView.reloadData()
             blackCheckersCollectionView.reloadData()
