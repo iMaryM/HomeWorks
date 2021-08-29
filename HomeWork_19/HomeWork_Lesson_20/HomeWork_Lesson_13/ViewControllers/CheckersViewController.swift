@@ -32,6 +32,8 @@ class CheckersViewController: UIViewController {
     var currentCheckerToMove: Checker_color = .white_checker
     
     let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    
+    let screenSize = CGRect(origin: .zero, size: .zero)
 
     //флаг для определения новая игра или сохраненная
     var isNewGame: Bool = true
@@ -154,6 +156,12 @@ class CheckersViewController: UIViewController {
             return
         }
         
+        let point1 = CGPoint(x: currentView.frame.origin.x + (checkerBoard.frame.width / 8), y: currentView.frame.origin.y + (checkerBoard.frame.height / 8))
+        let point2 = CGPoint(x: currentView.frame.origin.x - (checkerBoard.frame.width / 8), y: currentView.frame.origin.y + (checkerBoard.frame.height / 8))
+        let point3 = CGPoint(x: currentView.frame.origin.x + (checkerBoard.frame.width / 8), y: currentView.frame.origin.y - (checkerBoard.frame.height / 8))
+        let point4 = CGPoint(x: currentView.frame.origin.x - (checkerBoard.frame.width / 8), y: currentView.frame.origin.y - (checkerBoard.frame.height / 8))
+
+        
         switch sender.state {
         case .changed:
             checkerBoard.bringSubviewToFront(currentView) //передвигаем клеточку на передний план
@@ -166,26 +174,26 @@ class CheckersViewController: UIViewController {
             //проверяем является ли клетка в которую хотим поставить шашку черной
             for value in arrayOfCellsViews {
                 if value.frame.contains(location), value.tag == 0 {
-                    let x = abs(value.frame.origin.x - currentView.frame.origin.x)
-                    let y = abs(value.frame.origin.y - currentView.frame.origin.y)
-                    if  (x >= 30 && x <= 60) && (y >= 30 && y <= 60) {
+                    if (value.frame.contains(point1) || value.frame.contains(point2)), currentChecker.tag == Checker_color.white_checker.rawValue {
+                        newCheckerView = value
+                    }
+                    if (value.frame.contains(point3) || value.frame.contains(point4)),currentChecker.tag == Checker_color.black_checker.rawValue {
                         newCheckerView = value
                     }
                 }
             }
             
             sender.view?.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
-            
+
             //проверяем является есть ли в клеточке в которую хотим поставить шашку другая шашка
             guard let newCheckerView = newCheckerView, newCheckerView.subviews.isEmpty,
-                  let checker = sender.view else { return }
-            
+                  let checker = sender.view else {
+                return }
+
             newCheckerView.addSubview(checker) // добавляем шашку на новую клетку
 
-            guard let currentChecker = sender.view else { return } //определяем шашку которую двигаем
-            
             UIView.animate(withDuration: 0.3) {
-                currentChecker.transform = .identity
+                checker.transform = .identity
             }
             
             currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
@@ -210,9 +218,9 @@ class CheckersViewController: UIViewController {
         checkerBoard = drawCheckerboard(screenSize: screenSize)
         view.addSubview(checkerBoard)
         
-        arrayOfCellsViews = drawCell(screenSize: screenSize, checkerBoard: checkerBoard)
+        arrayOfCellsViews = drawCell(checkerBoard: checkerBoard)
         
-        arrayOfCheckersView = drawChecker(screenSize: screenSize, checkerBoard: checkerBoard)
+        arrayOfCheckersView = drawChecker(checkerBoard: checkerBoard)
         
         for value in arrayOfCheckersView {
             let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(tapGestureAction(_:)))
@@ -235,7 +243,7 @@ class CheckersViewController: UIViewController {
         checkerBoard = drawCheckerboard(screenSize: screenSize)
         view.addSubview(checkerBoard)
         
-        arrayOfCellsViews = drawCell(screenSize: screenSize, checkerBoard: checkerBoard)
+        arrayOfCellsViews = drawCell(checkerBoard: checkerBoard)
         
         arrayOfCheckersView = drawCheckerFromFile(screenSize: screenSize, checkerBoard: checkerBoard, cellWithCheckers: cellsWithChecker)
         
@@ -269,6 +277,7 @@ class CheckersViewController: UIViewController {
         return timeString
     }
     
+    //создание массива клеточек всех (с шашками и без)
     func createCells(from checkerboard: UIView) -> [Cell] {
         
         var newCell = Cell()
@@ -281,9 +290,9 @@ class CheckersViewController: UIViewController {
                     return []
                 }
                 if color == Checker_color.white_checker.rawValue {
-                    newCell.addChecker(checker: Checker(imageName: "Checker_white_1", color: color))
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedWhiteChecker)!, color: color))
                 } else {
-                    newCell.addChecker(checker: Checker(imageName: "Checker_black_1", color: color))
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedBlackChecker)!, color: color))
                 }
                 
                 arrayOfCells.append(newCell)
@@ -295,7 +304,7 @@ class CheckersViewController: UIViewController {
         return arrayOfCells
         
     }
-    
+
     func deleteFile() {
         //удаление файла игрой
         let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")

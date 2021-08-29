@@ -26,7 +26,7 @@ extension CheckersViewController {
         
     }
     
-    func drawCell(screenSize: CGRect, checkerBoard: UIView) -> [UIImageView] {
+    func drawCell(checkerBoard: UIView) -> [UIImageView] {
         let widthOfCurrentView = checkerBoard.frame.width / 8
         let heightOfCurrentView = checkerBoard.frame.height / 8
         
@@ -41,8 +41,8 @@ extension CheckersViewController {
             for j in 1...8 {
                 //отрисовка клеточки
                 cellView = UIImageView(frame: CGRect(x: x, y: y, width: widthOfCurrentView, height: heightOfCurrentView))
-                cellView.image = UIImage(named: ((i + j) % 2 == 0) ? ("dark_3") : ("light_3"))
-                cellView.tag = ((i + j) % 2 == 0) ? 0 : 1
+                cellView.image = UIImage(named: ((i + j) % 2 == 0) ? ("light_3") : ("dark_3"))
+                cellView.tag = ((i + j) % 2 != 0) ? 0 : 1
                 cellView.isUserInteractionEnabled = true
                 
                 checkerBoard.addSubview(cellView)
@@ -55,7 +55,7 @@ extension CheckersViewController {
         return arrayOfCellsViews
     }
     
-    func drawChecker(screenSize: CGRect, checkerBoard: UIView) -> [UIImageView]{
+    func drawChecker(checkerBoard: UIView) -> [UIImageView]{
         let widthOfCurrentView = checkerBoard.frame.width / 8
         let heightOfCurrentView = checkerBoard.frame.height / 8
         
